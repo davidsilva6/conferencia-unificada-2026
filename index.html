@@ -43,7 +43,7 @@
   .section-text { font-size: 16px; font-weight: 300; color: var(--text-muted); line-height: 1.8; max-width: 600px; }
   .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 3rem; }
   .sobre-decorativo { background: linear-gradient(135deg, var(--azul-claro) 0%, var(--rosa-claro) 100%); border-radius: 24px; height: 320px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-  .sobre-decorativo::before { font-size: 8rem; color: var(--rosa-medio); opacity: 0.3; }
+  .sobre-decorativo::before { content: '✦'; font-size: 8rem; color: var(--rosa-medio); opacity: 0.3; }
   .sobre-decorativo .quote { position: absolute; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--azul-escuro); text-align: center; padding: 2rem; line-height: 1.6; }
 
   .info-section { background: linear-gradient(135deg, #0C447C, #185FA5); border-radius: 28px; padding: 4rem 3rem; color: #fff; max-width: 900px; margin: 0 auto 4rem; }
@@ -178,7 +178,7 @@
       <p class="section-text" style="margin-top:1rem;">Venha fazer parte desse momento especial em um ambiente acolhedor, repleto de graça e cuidado.</p>
     </div>
     <div class="sobre-decorativo" style="padding:0;overflow:hidden;">
-      <img src="/Conferência Unificada.svg" alt="Laços rosa e azul — Outubro Rosa e Novembro Azul" style="width:100%;height:100%;object-fit:cover;border-radius:24px;">
+      <img src="Conferência Unificada.svg" alt="Laços rosa e azul — Outubro Rosa e Novembro Azul" style="width:100%;height:100%;object-fit:cover;border-radius:24px;">
     </div>
   </div>
 </section>
@@ -269,7 +269,7 @@
       </div>
       <div class="form-group">
         <label for="idade">Idade</label>
-        <input type="number" id="idade" min="0" max="120" placeholder="Sua idade" oninput="calcularValor()">
+        <input type="number" id="idade" min="0" max="120" placeholder="Sua idade" oninput="calcularValor(); atualizarLinkCartao();">
       </div>
       <div class="form-group full">
         <div class="valor-badge" id="valor-badge">
@@ -313,8 +313,19 @@
         </div>
         <div class="pagamento-info cartao" id="info-cartao">
           💳 <strong>Pagamento por cartão de crédito</strong><br>
-          Após concluir sua inscrição, você receberá um link de pagamento via WhatsApp.<br>
-          <small>⚠️ As taxas do cartão são por conta da participante.</small>
+          Clique no botão abaixo para realizar o pagamento diretamente pelo Mercado Pago:<br><br>
+          <div id="link-cartao-30" style="display:none;">
+            ⚠️ <strong>Atenção:</strong> devido às taxas da operadora, o valor cobrado no cartão será de <strong>R$ 31,57</strong> (no lugar de R$ 30,00).<br><br>
+            <a href="https://mpago.la/2poDC2F" target="_blank" style="display:inline-block;background:var(--azul-escuro);color:#fff;padding:10px 22px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:500;margin-top:4px;">💳 Pagar R$ 31,57 via Mercado Pago</a>
+          </div>
+          <div id="link-cartao-60" style="display:none;">
+            ⚠️ <strong>Atenção:</strong> devido às taxas da operadora, o valor cobrado no cartão será de <strong>R$ 63,14</strong> (no lugar de R$ 60,00).<br><br>
+            <a href="https://mpago.la/1NCF6KF" target="_blank" style="display:inline-block;background:var(--azul-escuro);color:#fff;padding:10px 22px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:500;margin-top:4px;">💳 Pagar R$ 63,14 via Mercado Pago</a>
+          </div>
+          <div id="link-cartao-vazio" style="display:block;">
+            <small>👆 Preencha sua idade acima para ver o link de pagamento correto.</small>
+          </div>
+          <br><small>Após o pagamento, guarde o comprovante. Em caso de dúvidas: <strong>(62) 99308-8043</strong></small>
         </div>
         <div class="pagamento-info dinheiro" id="info-dinheiro">
           💵 <strong>Pagamento em dinheiro</strong><br>
@@ -456,6 +467,27 @@ function mostrarPagamento(tipo) {
   ['pix','cartao','dinheiro'].forEach(t => {
     document.getElementById('info-'+t).style.display = t === tipo ? 'block' : 'none';
   });
+  if (tipo === 'cartao') atualizarLinkCartao();
+}
+
+function atualizarLinkCartao() {
+  const idade = parseInt(document.getElementById('idade').value);
+  const div30    = document.getElementById('link-cartao-30');
+  const div60    = document.getElementById('link-cartao-60');
+  const divVazio = document.getElementById('link-cartao-vazio');
+  if (isNaN(idade) || idade < 0) {
+    div30.style.display = 'none';
+    div60.style.display = 'none';
+    divVazio.style.display = 'block';
+  } else if (idade <= 14) {
+    div30.style.display = 'block';
+    div60.style.display = 'none';
+    divVazio.style.display = 'none';
+  } else {
+    div30.style.display = 'none';
+    div60.style.display = 'block';
+    divVazio.style.display = 'none';
+  }
 }
 
 function copiarPix() {
