@@ -1,616 +1,1403 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Conferência Unificada 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --rosa: #D4537E; --rosa-claro: #FBEAF0; --rosa-medio: #ED93B1;
-    --azul: #185FA5; --azul-claro: #E6F1FB; --azul-medio: #378ADD; --azul-escuro: #0C447C;
-    --off-white: #fdfaf7; --text-dark: #1a1a2e; --text-muted: #6b6b80;
-  }
-  body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text-dark); overflow-x: hidden; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conferência Unificada 2026</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: rgba(12,68,124,0.92); backdrop-filter: blur(12px); }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: #fff; letter-spacing: 1px; }
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; font-weight: 300; transition: color 0.2s; }
-  .nav-links a:hover { color: #fff; }
+    :root {
+      --rosa: #D4537E;
+      --rosa-claro: #FBEAF0;
+      --rosa-medio: #ED93B1;
+      --azul: #185FA5;
+      --azul-claro: #E6F1FB;
+      --azul-medio: #378ADD;
+      --azul-escuro: #0C447C;
+      --off-white: #fdfaf7;
+      --text-dark: #1a1a2e;
+      --text-muted: #6b6b80;
+    }
 
-  .hero { min-height: 100vh; background: linear-gradient(160deg, #0C447C 0%, #185FA5 45%, #993556 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: rgba(255,255,255,0.04); top: -200px; right: -200px; }
-  .hero::after { content: ''; position: absolute; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,0.04); bottom: -150px; left: -150px; }
-  .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; padding: 8px 20px; border-radius: 100px; margin-bottom: 2rem; font-weight: 300; }
-  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 300; color: #fff; line-height: 1.05; margin-bottom: 0.5rem; letter-spacing: -1px; }
-  .hero h1 em { font-style: italic; color: var(--rosa-medio); }
-  .hero-tema { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 3vw, 1.6rem); font-style: italic; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 2.5rem; letter-spacing: 1px; }
-  .hero-info { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
-  .hero-info-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 300; }
-  .hero-info-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rosa-medio); }
-  .vagas-alerta { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,83,126,0.25); border: 1px solid rgba(237,147,177,0.5); color: #fff; font-size: 13px; font-weight: 400; padding: 8px 20px; border-radius: 100px; margin-bottom: 2rem; }
-  .vagas-alerta .pulsar { width: 8px; height: 8px; border-radius: 50%; background: var(--rosa-medio); animation: pulsar 1.5s ease-in-out infinite; }
-  @keyframes pulsar { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.7)} }
-  .btn-hero { display: inline-block; background: #fff; color: var(--azul-escuro); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 14px 36px; border-radius: 100px; text-decoration: none; letter-spacing: 0.5px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 24px rgba(0,0,0,0.2); }
-  .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
 
-  section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
-  .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--rosa); font-weight: 500; margin-bottom: 1rem; }
-  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,5vw,3rem); font-weight: 400; color: var(--text-dark); line-height: 1.2; margin-bottom: 1.5rem; }
-  .section-title em { font-style: italic; color: var(--azul); }
-  .section-text { font-size: 16px; font-weight: 300; color: var(--text-muted); line-height: 1.8; max-width: 600px; }
-  .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 3rem; }
-  .sobre-decorativo { background: linear-gradient(135deg, var(--azul-claro) 0%, var(--rosa-claro) 100%); border-radius: 24px; height: 320px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-  .sobre-decorativo::before { content: '✦'; font-size: 8rem; color: var(--rosa-medio); opacity: 0.3; }
-  .sobre-decorativo .quote { position: absolute; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--azul-escuro); text-align: center; padding: 2rem; line-height: 1.6; }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(12, 68, 124, 0.92);
+      backdrop-filter: blur(12px);
+    }
 
-  .info-section { background: linear-gradient(135deg, #0C447C, #185FA5); border-radius: 28px; padding: 4rem 3rem; color: #fff; max-width: 900px; margin: 0 auto 4rem; }
-  .info-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 2.5rem; }
-  .info-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 1.5rem; }
-  .info-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-  .info-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--rosa-medio); }
-  .info-card p { font-size: 13px; font-weight: 300; opacity: 0.85; line-height: 1.6; }
-  .info-card a { color: var(--rosa-medio); text-decoration: none; font-size: 12px; display: inline-block; margin-top: 6px; }
-  .info-card a:hover { text-decoration: underline; }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: #fff;
+      letter-spacing: 1px;
+    }
 
-  .vagas-section { max-width: 900px; margin: 0 auto 4rem; padding: 0 2rem; }
-  .vagas-box { background: var(--rosa-claro); border: 1.5px solid rgba(212,83,126,0.2); border-radius: 20px; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-  .vagas-texto h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--text-dark); margin-bottom: 0.25rem; }
-  .vagas-texto p { font-size: 13px; color: var(--text-muted); font-weight: 300; }
-  .vagas-numero { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 600; color: var(--rosa); line-height: 1; }
-  .vagas-numero span { font-size: 1rem; font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--text-muted); display: block; text-align: center; margin-top: 4px; }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
 
-  .inscricao-section { background: var(--rosa-claro); border-radius: 28px; padding: 4rem 3rem; max-width: 900px; margin: 0 auto 6rem; }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
-  .form-group { display: flex; flex-direction: column; gap: 6px; }
-  .form-group.full { grid-column: 1 / -1; }
-  label { font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--azul-escuro); }
-  input, select, textarea { font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 12px 16px; border: 1.5px solid rgba(24,95,165,0.2); border-radius: 12px; background: #fff; color: var(--text-dark); outline: none; transition: border-color 0.2s; width: 100%; }
-  input:focus, select:focus, textarea:focus { border-color: var(--azul-medio); }
-  textarea { resize: vertical; min-height: 90px; }
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
 
-  .valor-badge { display: none; margin-top: 0.75rem; padding: 14px 18px; border-radius: 12px; font-size: 14px; font-weight: 400; line-height: 1.5; align-items: center; gap: 10px; }
-  .valor-badge.isento { background: #e8f5e9; border: 1px solid #a5d6a7; color: #2e7d32; }
-  .valor-badge.metade { background: #fff8e1; border: 1px solid #ffe082; color: #e65100; }
-  .valor-badge.inteiro { background: var(--azul-claro); border: 1px solid rgba(24,95,165,0.25); color: var(--azul-escuro); }
-  .valor-badge .valor-num { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; }
+    .nav-links a:hover {
+      color: #fff;
+    }
 
-  .pagamento-opcoes { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 0.5rem; }
-  .pagamento-opcao { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border: 1.5px solid rgba(24,95,165,0.2); border-radius: 12px; background: #fff; cursor: pointer; font-size: 14px; font-weight: 300; transition: border-color 0.2s, background 0.2s; }
-  .pagamento-opcao input[type="radio"] { width: auto; margin: 0; }
-  .pagamento-opcao:hover { border-color: var(--azul-medio); background: var(--azul-claro); }
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #0C447C 0%, #185FA5 45%, #993556 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-  .pagamento-info { margin-top: 1rem; padding: 1.25rem; border-radius: 12px; font-size: 13px; font-weight: 300; line-height: 1.8; display: none; }
-  .pagamento-info.pix { background: #e8f5e9; border: 1px solid #a5d6a7; color: #2e7d32; }
-  .pagamento-info.cartao { background: var(--azul-claro); border: 1px solid rgba(24,95,165,0.2); color: var(--azul-escuro); }
-  .pagamento-info.dinheiro { background: #fff8e1; border: 1px solid #ffe082; color: #5f4000; }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      top: -200px;
+      right: -200px;
+    }
 
-  .pix-chave { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #a5d6a7; border-radius: 8px; padding: 6px 12px; margin-top: 8px; font-family: monospace; font-size: 13px; cursor: pointer; transition: background 0.2s; }
-  .pix-chave:hover { background: #f1f8f1; }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      bottom: -150px;
+      left: -150px;
+    }
 
-  .pagamento-wrapper.oculto { display: none; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
 
-  .btn-inscricao { display: block; width: 100%; background: linear-gradient(135deg, var(--azul-escuro), var(--rosa)); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; padding: 16px; border-radius: 100px; border: none; cursor: pointer; margin-top: 2rem; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; }
-  .btn-inscricao:hover { opacity: 0.9; transform: translateY(-1px); }
-  .btn-inscricao:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.05;
+      margin-bottom: 0.5rem;
+      letter-spacing: -1px;
+    }
 
-  /* ENCERRADO */
-  .encerrado-box { display: none; text-align: center; padding: 2.5rem 2rem; }
-  .encerrado-box .enc-icone { font-size: 3rem; margin-bottom: 1rem; }
-  .encerrado-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: var(--azul-escuro); margin-bottom: 0.75rem; }
-  .encerrado-box p { font-size: 14px; color: var(--text-muted); font-weight: 300; line-height: 1.7; }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rosa-medio);
+    }
 
-  /* BARRA DE VAGAS */
-  .vagas-barra-container { margin-top: 1rem; }
-  .vagas-barra-track { background: rgba(212,83,126,0.15); border-radius: 100px; height: 8px; overflow: hidden; margin-top: 0.5rem; }
-  .vagas-barra-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--azul-medio), var(--rosa)); transition: width 1.2s ease; width: 0%; }
-  .vagas-barra-label { font-size: 12px; color: var(--text-muted); font-weight: 300; margin-top: 6px; }
+    .hero-tema {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+    }
 
-  .sucesso-box { display: none; text-align: center; padding: 2rem; }
-  .sucesso-numero { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 600; color: var(--rosa); line-height: 1; }
-  .sucesso-numero span { font-size: 1rem; font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--text-muted); display: block; margin-top: 4px; }
-  .sucesso-msg { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--azul-escuro); margin: 1.5rem 0 0.75rem; }
-  .sucesso-sub { font-size: 14px; color: var(--text-muted); font-weight: 300; line-height: 1.7; }
+    .hero-info {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
 
-  footer { text-align: center; padding: 2rem; font-size: 12px; color: var(--text-muted); font-weight: 300; }
+    .hero-info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+      font-weight: 300;
+    }
 
-  /* COUNTDOWN */
-  .countdown-wrapper { text-align: center; padding: 2.5rem 1rem 1rem; }
-  .countdown-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--azul-escuro); margin-bottom: 0.5rem; }
-  .countdown-sub { font-size: 13px; color: var(--text-muted); font-weight: 300; margin-bottom: 1.5rem; }
-  .countdown-boxes { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .countdown-box { background: linear-gradient(135deg, var(--azul-escuro), var(--azul)); color: #fff; border-radius: 16px; padding: 1rem 1.25rem; min-width: 70px; text-align: center; }
-  .countdown-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; line-height: 1; }
-  .countdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.75; margin-top: 4px; }
-  .countdown-aberto { display: none; text-align: center; padding: 1.5rem 1rem; }
-  .countdown-aberto p { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--azul-escuro); }
-  .countdown-redes { margin-top: 1.75rem; }
-  .countdown-redes-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); font-weight: 300; margin-bottom: 0.75rem; }
-  .countdown-ig-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); color: #fff; font-size: 14px; font-weight: 400; padding: 10px 22px; border-radius: 100px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
-  .countdown-ig-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-  .countdown-ig-btn svg { width: 18px; height: 18px; stroke: #fff; }
+    .hero-info-item .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--rosa-medio);
+    }
 
-  /* WHATSAPP FLUTUANTE */
-  .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
-  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
-  .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+    .vagas-alerta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 83, 126, 0.25);
+      border: 1px solid rgba(237, 147, 177, 0.5);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 8px 20px;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+    }
 
-  @media (max-width: 680px) {
-    .sobre-grid, .info-grid, .form-grid, .pagamento-opcoes { grid-template-columns: 1fr; }
-    nav { padding: 1rem; } .nav-links { display: none; }
-    .info-section, .inscricao-section { padding: 2.5rem 1.5rem; }
-    .vagas-box { flex-direction: column; text-align: center; }
-  }
-</style>
+    .vagas-alerta .pulsar {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--rosa-medio);
+      animation: pulsar 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulsar {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.7)
+      }
+    }
+
+    .btn-hero {
+      display: inline-block;
+      background: #fff;
+      color: var(--azul-escuro);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-hero:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    section {
+      padding: 5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rosa);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--azul);
+    }
+
+    .section-text {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .sobre-decorativo {
+      background: linear-gradient(135deg, var(--azul-claro) 0%, var(--rosa-claro) 100%);
+      border-radius: 24px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sobre-decorativo::before {
+      content: '✦';
+      font-size: 8rem;
+      color: var(--rosa-medio);
+      opacity: 0.3;
+    }
+
+    .sobre-decorativo .quote {
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--azul-escuro);
+      text-align: center;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .info-section {
+      background: linear-gradient(135deg, #0C447C, #185FA5);
+      border-radius: 28px;
+      padding: 4rem 3rem;
+      color: #fff;
+      max-width: 900px;
+      margin: 0 auto 4rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .info-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .info-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: var(--rosa-medio);
+    }
+
+    .info-card p {
+      font-size: 13px;
+      font-weight: 300;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+
+    .info-card a {
+      color: var(--rosa-medio);
+      text-decoration: none;
+      font-size: 12px;
+      display: inline-block;
+      margin-top: 6px;
+    }
+
+    .info-card a:hover {
+      text-decoration: underline;
+    }
+
+    .vagas-section {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .vagas-box {
+      background: var(--rosa-claro);
+      border: 1.5px solid rgba(212, 83, 126, 0.2);
+      border-radius: 20px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .vagas-texto h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .vagas-texto p {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .vagas-numero {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--rosa);
+      line-height: 1;
+    }
+
+    .vagas-numero span {
+      font-size: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      color: var(--text-muted);
+      display: block;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .inscricao-section {
+      background: var(--rosa-claro);
+      border-radius: 28px;
+      padding: 4rem 3rem;
+      max-width: 900px;
+      margin: 0 auto 6rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--azul-escuro);
+    }
+
+    input,
+    select,
+    textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 12px 16px;
+      border: 1.5px solid rgba(24, 95, 165, 0.2);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--azul-medio);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .valor-badge {
+      display: none;
+      margin-top: 0.75rem;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .valor-badge.isento {
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      color: #2e7d32;
+    }
+
+    .valor-badge.metade {
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      color: #e65100;
+    }
+
+    .valor-badge.inteiro {
+      background: var(--azul-claro);
+      border: 1px solid rgba(24, 95, 165, 0.25);
+      color: var(--azul-escuro);
+    }
+
+    .valor-badge .valor-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .pagamento-opcoes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .pagamento-opcao {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      border: 1.5px solid rgba(24, 95, 165, 0.2);
+      border-radius: 12px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 300;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .pagamento-opcao input[type="radio"] {
+      width: auto;
+      margin: 0;
+    }
+
+    .pagamento-opcao:hover {
+      border-color: var(--azul-medio);
+      background: var(--azul-claro);
+    }
+
+    .pagamento-info {
+      margin-top: 1rem;
+      padding: 1.25rem;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.8;
+      display: none;
+    }
+
+    .pagamento-info.pix {
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      color: #2e7d32;
+    }
+
+    .pagamento-info.cartao {
+      background: var(--azul-claro);
+      border: 1px solid rgba(24, 95, 165, 0.2);
+      color: var(--azul-escuro);
+    }
+
+    .pagamento-info.dinheiro {
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      color: #5f4000;
+    }
+
+    .pix-chave {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 1px solid #a5d6a7;
+      border-radius: 8px;
+      padding: 6px 12px;
+      margin-top: 8px;
+      font-family: monospace;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .pix-chave:hover {
+      background: #f1f8f1;
+    }
+
+    .pagamento-wrapper.oculto {
+      display: none;
+    }
+
+    .btn-inscricao {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--azul-escuro), var(--rosa));
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      margin-top: 2rem;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-inscricao:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .btn-inscricao:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ENCERRADO */
+    .encerrado-box {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 2rem;
+    }
+
+    .encerrado-box .enc-icone {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .encerrado-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--azul-escuro);
+      margin-bottom: 0.75rem;
+    }
+
+    .encerrado-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* BARRA DE VAGAS */
+    .vagas-barra-container {
+      margin-top: 1rem;
+    }
+
+    .vagas-barra-track {
+      background: rgba(212, 83, 126, 0.15);
+      border-radius: 100px;
+      height: 8px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .vagas-barra-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--azul-medio), var(--rosa));
+      transition: width 1.2s ease;
+      width: 0%;
+    }
+
+    .vagas-barra-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-top: 6px;
+    }
+
+    .sucesso-box {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .sucesso-numero {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 600;
+      color: var(--rosa);
+      line-height: 1;
+    }
+
+    .sucesso-numero span {
+      font-size: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .sucesso-msg {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--azul-escuro);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    .sucesso-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* COUNTDOWN */
+    .countdown-wrapper {
+      text-align: center;
+      padding: 2.5rem 1rem 1rem;
+    }
+
+    .countdown-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--azul-escuro);
+      margin-bottom: 0.5rem;
+    }
+
+    .countdown-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .countdown-boxes {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .countdown-box {
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul));
+      color: #fff;
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    .countdown-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .countdown-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-top: 4px;
+    }
+
+    .countdown-aberto {
+      display: none;
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    .countdown-aberto p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--azul-escuro);
+    }
+
+    .countdown-redes {
+      margin-top: 1.75rem;
+    }
+
+    .countdown-redes-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 0.75rem;
+    }
+
+    .countdown-ig-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      padding: 10px 22px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .countdown-ig-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .countdown-ig-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: #fff;
+    }
+
+    /* WHATSAPP FLUTUANTE */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+    }
+
+    .whatsapp-float svg {
+      width: 30px;
+      height: 30px;
+      fill: #fff;
+    }
+
+    @media (max-width: 680px) {
+
+      .sobre-grid,
+      .info-grid,
+      .form-grid,
+      .pagamento-opcoes {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .info-section,
+      .inscricao-section {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .vagas-box {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<nav>
-  <span class="nav-logo">Conferência Unificada</span>
-  <ul class="nav-links">
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#informacoes">Informações</a></li>
-    <li><a href="#inscricao">Inscrição</a></li>
-  </ul>
-</nav>
+  <nav>
+    <span class="nav-logo">Conferência Unificada</span>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#informacoes">Informações</a></li>
+      <li><a href="#inscricao">Inscrição</a></li>
+    </ul>
+  </nav>
 
-<section class="hero">
-  <div class="hero-badge">Ministério de Mulheres · Anápolis</div>
-  <h1>Conferência<br><em>Unificada</em></h1>
-  <p class="hero-tema">Tema: Cuidado com Propósito</p>
-  <div class="hero-info">
-    <div class="hero-info-item"><div class="dot"></div> 07 de novembro de 2026</div>
-    <div class="hero-info-item"><div class="dot"></div> Oásis Eventos · Anápolis, GO</div>
-  </div>
-  <div class="vagas-alerta"><div class="pulsar"></div> Apenas 100 vagas — evento aberto a todos</div>
-  <a href="#inscricao" class="btn-hero">Garantir minha vaga</a>
-</section>
-
-<section id="sobre" style="padding-top:6rem;">
-  <p class="section-label">Sobre o evento</p>
-  <h2 class="section-title">Um encontro de <em>cuidado</em> e propósito</h2>
-  <div class="sobre-grid">
-    <div>
-      <p class="section-text">A Conferência Unificada é um evento aberto a todos — homens, mulheres, jovens e famílias — que desejam se unir em torno de um tema que nos diz respeito: o cuidado com a saúde e com a vida.</p>
-      <p class="section-text" style="margin-top:1rem;">Inspirado pelo <strong style="color:var(--rosa);">Outubro Rosa</strong> e pelo <strong style="color:var(--azul);">Novembro Azul</strong>, este encontro traz reflexões sobre prevenção, autocuidado e a importância de cuidar de si e de quem amamos — com propósito e com fé.</p>
-      <p class="section-text" style="margin-top:1rem;">Venha fazer parte desse momento especial em um ambiente acolhedor, repleto de graça e cuidado.</p>
-    </div>
-    <div class="sobre-decorativo" style="padding:0;overflow:hidden;">
-      <img src="Conferência Unificada.svg" alt="Laços rosa e azul — Outubro Rosa e Novembro Azul" style="width:100%;height:100%;object-fit:cover;border-radius:24px;">
-    </div>
-  </div>
-</section>
-
-<div class="info-section" id="informacoes">
-  <p class="section-label" style="color:var(--rosa-medio);">Informações práticas</p>
-  <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#fff;">O que você precisa saber</h2>
-  <div class="info-grid">
-    <div class="info-card">
-      <div class="info-card-icon">📅</div>
-      <h3>Data e horário</h3>
-      <p>Sábado, 07 de novembro de 2026.<br>🚪 Entrada a partir das <strong>08h</strong><br>🎤 Início às <strong>09h</strong></p>
-    </div>
-    <div class="info-card">
-      <div class="info-card-icon">📍</div>
-      <h3>Local</h3>
-      <p>Salão de Festas Oásis Eventos<br>Rua dos Coqueirais, Qd. 25, Lt. 07<br>Privê Lírios dos Campos — Anápolis, GO</p>
-      <a href="https://maps.app.goo.gl/HXgs2ja2KMHpu1ev7" target="_blank">📌 Ver no Google Maps</a><br>
-      <a href="https://www.waze.com/en/live-map/directions/br/go/oasis-eventos?place=ChIJVTrvbmulXpMR5nVeknKksf0" target="_blank">🗺️ Abrir no Waze</a>
-    </div>
-    <div class="info-card">
-      <div class="info-card-icon">🌸</div>
-      <h3>O que levar</h3>
-      <p>Bíblia, caderno, roupas confortáveis e muita disposição para um dia especial e abençoado.</p>
-    </div>
-  </div>
-</div>
-
-<div class="vagas-section">
-  <div class="vagas-box">
-    <div class="vagas-texto">
-      <h3>Vagas muito limitadas</h3>
-      <p>Evento aberto a todos. Garanta sua vaga o quanto antes.<br>As inscrições encerram ao atingir o limite.</p>
-    </div>
-    <div class="vagas-numero" id="vagas-restantes">—<span>vagas restantes</span></div>
-  </div>
-  <div class="vagas-barra-container">
-    <div class="vagas-barra-track">
-      <div class="vagas-barra-fill" id="vagas-barra"></div>
-    </div>
-    <div class="vagas-barra-label" id="vagas-barra-label">Carregando informações...</div>
-  </div>
-</div>
-
-<div class="inscricao-section" id="inscricao">
-  <p class="section-label" style="color:var(--rosa);" id="inscricao-label">Inscrições abertas</p>
-  <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;color:var(--azul-escuro);margin-bottom:0.5rem;" id="inscricao-titulo">Reserve sua vaga</h2>
-  <p style="font-size:14px;color:var(--text-muted);font-weight:300;" id="inscricao-subtitulo">Preencha os dados abaixo para confirmar sua participação.</p>
-
-  <!-- COUNTDOWN -->
-  <div class="countdown-wrapper" id="countdown-wrapper">
-    <p class="countdown-title">As inscrições abrem em breve!</p>
-    <p class="countdown-sub">Fique ligado nas nossas redes sociais para saber quando abrirá!</p>
-    <div class="countdown-boxes">
-      <div class="countdown-box"><div class="countdown-num" id="cd-horas">--</div><div class="countdown-label">Horas</div></div>
-      <div class="countdown-box"><div class="countdown-num" id="cd-min">--</div><div class="countdown-label">Min</div></div>
-      <div class="countdown-box"><div class="countdown-num" id="cd-seg">--</div><div class="countdown-label">Seg</div></div>
-    </div>
-    <div class="countdown-redes">
-      <p class="countdown-redes-label">Siga a Igreja Promessa Anápolis</p>
-      <a href="https://www.instagram.com/promessa.anapolis" target="_blank" class="countdown-ig-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
-        @promessa.anapolis
-      </a>
-    </div>
-  </div>
-
-  <!-- ENCERRADO -->
-  <div class="encerrado-box" id="encerrado-box">
-    <div class="enc-icone">🌸</div>
-    <h3>Inscrições encerradas</h3>
-    <p>Todas as 100 vagas foram preenchidas.<br>Agradecemos o interesse e esperamos vê-lo(a) em nosso próximo evento!<br><br>Dúvidas? Entre em contato: <strong>(62) 99308-8043</strong></p>
-  </div>
-
-  <div id="form-container">
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="nome">Nome completo</label>
-        <input type="text" id="nome" placeholder="Seu nome completo">
+  <section class="hero">
+    <div class="hero-badge">Ministério de Mulheres · Anápolis</div>
+    <h1>Conferência<br><em>Unificada</em></h1>
+    <p class="hero-tema">Tema: Cuidado com Propósito</p>
+    <div class="hero-info">
+      <div class="hero-info-item">
+        <div class="dot"></div> 07 de novembro de 2026
       </div>
-      <div class="form-group">
-        <label for="whatsapp">WhatsApp</label>
-        <input type="tel" id="whatsapp" placeholder="(62) 9 0000-0000">
+      <div class="hero-info-item">
+        <div class="dot"></div> Oásis Eventos · Anápolis, GO
       </div>
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" placeholder="seuemail@gmail.com">
+    </div>
+    <div class="vagas-alerta">
+      <div class="pulsar"></div> Apenas 100 vagas — evento aberto a todos
+    </div>
+    <a href="#inscricao" class="btn-hero">Garantir minha vaga</a>
+  </section>
+
+  <section id="sobre" style="padding-top:6rem;">
+    <p class="section-label">Sobre o evento</p>
+    <h2 class="section-title">Um encontro de <em>cuidado</em> e propósito</h2>
+    <div class="sobre-grid">
+      <div>
+        <p class="section-text">A Conferência Unificada é um evento aberto a todos — homens, mulheres, jovens e famílias
+          — que desejam se unir em torno de um tema que nos diz respeito: o cuidado com a saúde e com a vida.</p>
+        <p class="section-text" style="margin-top:1rem;">Inspirado pelo <strong style="color:var(--rosa);">Outubro
+            Rosa</strong> e pelo <strong style="color:var(--azul);">Novembro Azul</strong>, este encontro traz reflexões
+          sobre prevenção, autocuidado e a importância de cuidar de si e de quem amamos — com propósito e com fé.</p>
+        <p class="section-text" style="margin-top:1rem;">Venha fazer parte desse momento especial em um ambiente
+          acolhedor, repleto de graça e cuidado.</p>
       </div>
-      <div class="form-group">
-        <label for="idade">Idade</label>
-        <input type="number" id="idade" min="0" max="120" placeholder="Sua idade" oninput="calcularValor(); atualizarLinkCartao();">
+      <div class="sobre-decorativo" style="padding:0;overflow:hidden;">
+        <img src="Conferência Unificada.svg" alt="Laços rosa e azul — Outubro Rosa e Novembro Azul"
+          style="width:100%;height:100%;object-fit:cover;border-radius:24px;">
       </div>
-      <div class="form-group full">
-        <div class="valor-badge" id="valor-badge">
-          <span id="valor-icone"></span>
-          <span id="valor-texto"></span>
+    </div>
+  </section>
+
+  <div class="info-section" id="informacoes">
+    <p class="section-label" style="color:var(--rosa-medio);">Informações práticas</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#fff;">O que você precisa
+      saber</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-icon">📅</div>
+        <h3>Data e horário</h3>
+        <p>Sábado, 07 de novembro de 2026.<br>🚪 Entrada a partir das <strong>08h</strong><br>🎤 Início às
+          <strong>09h</strong>
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">📍</div>
+        <h3>Local</h3>
+        <p>Salão de Festas Oásis Eventos<br>Rua dos Coqueirais, Qd. 25, Lt. 07<br>Privê Lírios dos Campos — Anápolis, GO
+        </p>
+        <a href="https://maps.app.goo.gl/HXgs2ja2KMHpu1ev7" target="_blank">📌 Ver no Google Maps</a><br>
+        <a href="https://www.waze.com/en/live-map/directions/br/go/oasis-eventos?place=ChIJVTrvbmulXpMR5nVeknKksf0"
+          target="_blank">🗺️ Abrir no Waze</a>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🌸</div>
+        <h3>O que levar</h3>
+        <p>Bíblia, caderno, roupas confortáveis e muita disposição para um dia especial e abençoado.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="vagas-section">
+    <div class="vagas-box">
+      <div class="vagas-texto">
+        <h3>Vagas muito limitadas</h3>
+        <p>Evento aberto a todos. Garanta sua vaga o quanto antes.<br>As inscrições encerram ao atingir o limite.</p>
+      </div>
+      <div class="vagas-numero" id="vagas-restantes">—<span>vagas restantes</span></div>
+    </div>
+    <div class="vagas-barra-container">
+      <div class="vagas-barra-track">
+        <div class="vagas-barra-fill" id="vagas-barra"></div>
+      </div>
+      <div class="vagas-barra-label" id="vagas-barra-label">Carregando informações...</div>
+    </div>
+  </div>
+
+  <div class="inscricao-section" id="inscricao">
+    <p class="section-label" style="color:var(--rosa);" id="inscricao-label">Inscrições abertas</p>
+    <h2
+      style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;color:var(--azul-escuro);margin-bottom:0.5rem;"
+      id="inscricao-titulo">Reserve sua vaga</h2>
+    <p style="font-size:14px;color:var(--text-muted);font-weight:300;" id="inscricao-subtitulo">Preencha os dados abaixo
+      para confirmar sua participação.</p>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-wrapper" id="countdown-wrapper">
+      <p class="countdown-title">As inscrições abrem em breve!</p>
+      <p class="countdown-sub">Fique ligado nas nossas redes sociais para saber quando abrirá!</p>
+      <div class="countdown-boxes">
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-horas">--</div>
+          <div class="countdown-label">Horas</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-min">--</div>
+          <div class="countdown-label">Min</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-seg">--</div>
+          <div class="countdown-label">Seg</div>
         </div>
       </div>
-      <div class="form-group full">
-        <label for="restricao">Restrição alimentar</label>
-        <select id="restricao">
-          <option value="">Selecione...</option>
-          <option>Nenhuma restrição</option>
-          <option>Intolerância à lactose</option>
-          <option>Intolerância ao glúten</option>
-          <option>Vegetariana</option>
-          <option>Outra (descrever abaixo)</option>
-        </select>
+      <div class="countdown-redes">
+        <p class="countdown-redes-label">Siga a Igreja Promessa Anápolis</p>
+        <a href="https://www.instagram.com/promessa.anapolis" target="_blank" class="countdown-ig-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+          </svg>
+          @promessa.anapolis
+        </a>
       </div>
-      <div class="form-group full">
-        <label for="obs">Observações (opcional)</label>
-        <textarea id="obs" placeholder="Alguma informação adicional que queira nos contar..."></textarea>
-      </div>
-      <div class="form-group full pagamento-wrapper" id="pagamento-wrapper">
-        <label>Forma de pagamento</label>
-        <div class="pagamento-opcoes">
-          <label class="pagamento-opcao">
-            <input type="radio" name="pagamento" value="Pix" onchange="mostrarPagamento('pix')"> ❖ Pix
-          </label>
-          <label class="pagamento-opcao">
-            <input type="radio" name="pagamento" value="Cartão de Crédito" onchange="mostrarPagamento('cartao')"> 💳 Cartão
-          </label>
-          <label class="pagamento-opcao">
-            <input type="radio" name="pagamento" value="Dinheiro" onchange="mostrarPagamento('dinheiro')"> 💵 Dinheiro
-          </label>
+    </div>
+
+    <!-- ENCERRADO -->
+    <div class="encerrado-box" id="encerrado-box">
+      <div class="enc-icone">🌸</div>
+      <h3>Inscrições encerradas</h3>
+      <p>Todas as 100 vagas foram preenchidas.<br>Agradecemos o interesse e esperamos vê-lo(a) em nosso próximo
+        evento!<br><br>Dúvidas? Entre em contato: <strong>(62) 99308-8043</strong></p>
+    </div>
+
+    <div id="form-container">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" placeholder="Seu nome completo">
         </div>
-        <div class="pagamento-info pix" id="info-pix">
-          ✅ <strong>Pague via Pix</strong><br>
-          Copie a chave abaixo e realize o pagamento no valor indicado:<br>
-          <span class="pix-chave" onclick="copiarPix()">📋 promessaanapolislucelia@gmail.com</span><br>
-          <small>Após o pagamento, guarde o comprovante. Em caso de dúvidas: <strong>(62) 99308-8043</strong></small>
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" placeholder="(62) 9 0000-0000">
         </div>
-        <div class="pagamento-info cartao" id="info-cartao">
-          💳 <strong>Pagamento por cartão de crédito</strong><br>
-          Clique no botão abaixo para realizar o pagamento diretamente pelo Mercado Pago:<br><br>
-          <div id="link-cartao-30" style="display:none;">
-            ⚠️ <strong>Atenção:</strong> devido às taxas da operadora, o valor cobrado no cartão será de <strong>R$ 31,57</strong> (no lugar de R$ 30,00).<br><br>
-            <a href="https://mpago.la/2poDC2F" target="_blank" style="display:inline-block;background:var(--azul-escuro);color:#fff;padding:10px 22px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:500;margin-top:4px;">💳 Pagar R$ 31,57 via Mercado Pago</a>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="seuemail@gmail.com">
+        </div>
+        <div class="form-group">
+          <label for="idade">Idade</label>
+          <input type="number" id="idade" min="0" max="120" placeholder="Sua idade"
+            oninput="calcularValor(); atualizarLinkCartao();">
+        </div>
+        <div class="form-group full">
+          <div class="valor-badge" id="valor-badge">
+            <span id="valor-icone"></span>
+            <span id="valor-texto"></span>
           </div>
-          <div id="link-cartao-60" style="display:none;">
-            ⚠️ <strong>Atenção:</strong> devido às taxas da operadora, o valor cobrado no cartão será de <strong>R$ 63,14</strong> (no lugar de R$ 60,00).<br><br>
-            <a href="https://mpago.la/1NCF6KF" target="_blank" style="display:inline-block;background:var(--azul-escuro);color:#fff;padding:10px 22px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:500;margin-top:4px;">💳 Pagar R$ 63,14 via Mercado Pago</a>
-          </div>
-          <div id="link-cartao-vazio" style="display:block;">
-            <small>👆 Preencha sua idade acima para ver o link de pagamento correto.</small>
-          </div>
-          <br><small>Após o pagamento, guarde o comprovante. Em caso de dúvidas: <strong>(62) 99308-8043</strong></small>
         </div>
-        <div class="pagamento-info dinheiro" id="info-dinheiro">
-          💵 <strong>Pagamento em dinheiro</strong><br>
-          Entregue o valor diretamente para a líder do ministério:<br>
-          <strong>Adriana Silva</strong> · WhatsApp: <a href="https://wa.me/5562993088043" target="_blank" style="color:inherit;font-weight:500;">(62) 99308-8043</a><br>
-          <small>Entre em contato para combinar a entrega e confirmar sua vaga.</small>
+        <div class="form-group full">
+          <label for="restricao">Restrição alimentar</label>
+          <select id="restricao">
+            <option value="">Selecione...</option>
+            <option>Nenhuma restrição</option>
+            <option>Intolerância à lactose</option>
+            <option>Intolerância ao glúten</option>
+            <option>Vegetariana</option>
+            <option>Outra (descrever abaixo)</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="obs">Observações (opcional)</label>
+          <textarea id="obs" placeholder="Alguma informação adicional que queira nos contar..."></textarea>
+        </div>
+        <div class="form-group full pagamento-wrapper" id="pagamento-wrapper">
+          <label>Forma de pagamento</label>
+          <div class="pagamento-opcoes">
+            <label class="pagamento-opcao">
+              <input type="radio" name="pagamento" value="Pix" onchange="mostrarPagamento('pix')"> ❖ Pix
+            </label>
+            <label class="pagamento-opcao">
+              <input type="radio" name="pagamento" value="Cartão de Crédito" onchange="mostrarPagamento('cartao')"> 💳
+              Cartão
+            </label>
+            <label class="pagamento-opcao">
+              <input type="radio" name="pagamento" value="Dinheiro" onchange="mostrarPagamento('dinheiro')"> 💵 Dinheiro
+            </label>
+          </div>
+          <div class="pagamento-info pix" id="info-pix">
+            ✅ <strong>Pague via Pix</strong><br>
+            Copie a chave abaixo e realize o pagamento no valor indicado:<br>
+            <span class="pix-chave" onclick="copiarPix()">📋 promessaanapolislucelia@gmail.com</span><br>
+            <small>Após pagar, envie o comprovante para o WhatsApp de Adriana Silva: <strong>(62)
+                99308-8043</strong><br>⚠️ Sua vaga só será confirmada após o recebimento do comprovante.</small>
+          </div>
+          <div class="pagamento-info cartao" id="info-cartao">
+            💳 <strong>Pagamento por cartão de crédito</strong><br>
+            Clique no botão abaixo para realizar o pagamento diretamente pelo Mercado Pago:<br><br>
+            <div id="link-cartao-30" style="display:none;">
+              ⚠️ <strong>Atenção:</strong> devido às taxas da operadora, o valor cobrado no cartão será de <strong>R$
+                31,57</strong> (no lugar de R$ 30,00).<br><br>
+              <a href="https://mpago.la/2poDC2F" target="_blank"
+                style="display:inline-block;background:var(--azul-escuro);color:#fff;padding:10px 22px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:500;margin-top:4px;">💳
+                Pagar R$ 31,57 via Mercado Pago</a>
+            </div>
+            <div id="link-cartao-60" style="display:none;">
+              ⚠️ <strong>Atenção:</strong> devido às taxas da operadora, o valor cobrado no cartão será de <strong>R$
+                63,14</strong> (no lugar de R$ 60,00).<br><br>
+              <a href="https://mpago.la/1NCF6KF" target="_blank"
+                style="display:inline-block;background:var(--azul-escuro);color:#fff;padding:10px 22px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:500;margin-top:4px;">💳
+                Pagar R$ 63,14 via Mercado Pago</a>
+            </div>
+            <div id="link-cartao-vazio" style="display:block;">
+              <small>👆 Preencha sua idade acima para ver o link de pagamento correto.</small>
+            </div>
+            <br>
+            <small>Após o pagamento, envie o comprovante para o WhatsApp de Adriana Silva: <strong>(62)
+                99308-8043</strong>
+              <br>⚠️ Sua vaga só será confirmada após o recebimento do comprovante.</small>
+          </div>
+          <div class="pagamento-info dinheiro" id="info-dinheiro">
+            💵 <strong>Pagamento em dinheiro</strong><br>
+            Entre em contato com a líder Adriana Silva para combinar a entrega:<br>
+            <strong>Adriana Silva</strong> · WhatsApp: <a href="https://wa.me/5562993088043" target="_blank"
+              style="color:inherit;font-weight:500;">(62) 99308-8043</a><br>
+            <small>⚠️ Sua vaga só será confirmada após o recebimento do valor.</small>
+          </div>
         </div>
       </div>
+      <button class="btn-inscricao" id="btn-enviar" onclick="enviarInscricao()">Confirmar inscrição ➔</button>
     </div>
-    <button class="btn-inscricao" id="btn-enviar" onclick="enviarInscricao()">Confirmar inscrição ➔</button>
+
+    <div class="sucesso-box" id="sucesso-box">
+      <div style="font-size:3rem;">🌸</div>
+      <div class="sucesso-numero" id="sucesso-numero">—<span>seu número de inscrição</span></div>
+      <p class="sucesso-msg">Inscrição realizada com sucesso!</p>
+      <p class="sucesso-sub" id="sucesso-sub">Um e-mail de confirmação foi enviado com seu número de
+        inscrição.<br>Guarde-o bem — ele poderá ser usado em sorteios no dia do evento!<br><small
+          style="color:var(--text-muted);font-size:12px;">Não encontrou o e-mail? Verifique sua pasta de
+          <strong>Spam</strong> ou <strong>Lixo Eletrônico</strong>.</small></p>
+    </div>
   </div>
 
-  <div class="sucesso-box" id="sucesso-box">
-    <div style="font-size:3rem;">🌸</div>
-    <div class="sucesso-numero" id="sucesso-numero">—<span>seu número de inscrição</span></div>
-    <p class="sucesso-msg">Inscrição realizada com sucesso!</p>
-    <p class="sucesso-sub" id="sucesso-sub">Um e-mail de confirmação foi enviado com seu número de inscrição.<br>Guarde-o bem — ele poderá ser usado em sorteios no dia do evento!<br><small style="color:var(--text-muted);font-size:12px;">Não encontrou o e-mail? Verifique sua pasta de <strong>Spam</strong> ou <strong>Lixo Eletrônico</strong>.</small></p>
-  </div>
-</div>
+  <footer>
+    <p>Conferência Unificada 2026 · Ministério de Mulheres · Anápolis, Goiás</p>
+    <p style="margin-top:0.5rem;opacity:0.6;">Um evento de cuidado, fé e propósito 🌸💙</p>
+  </footer>
 
-<footer>
-  <p>Conferência Unificada 2026 · Ministério de Mulheres · Anápolis, Goiás</p>
-  <p style="margin-top:0.5rem;opacity:0.6;">Um evento de cuidado, fé e propósito 🌸💙</p>
-</footer>
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/5562993088043?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20a%20Confer%C3%AAncia%20Unificada%202026!"
+    class="whatsapp-float" target="_blank" title="Fale conosco pelo WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
 
-<!-- WHATSAPP FLUTUANTE -->
-<a href="https://wa.me/5562993088043?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20a%20Confer%C3%AAncia%20Unificada%202026!" class="whatsapp-float" target="_blank" title="Fale conosco pelo WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKLtXto2meFoaFfhLKQdQPrPo9aoXnOSQM_KkwGaIciouPmM8TzQfFL8KFzMvnIiun/exec';
 
-<script>
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKLtXto2meFoaFfhLKQdQPrPo9aoXnOSQM_KkwGaIciouPmM8TzQfFL8KFzMvnIiun/exec';
-
-// Animação do contador
-function animarContador(de, ate, duracao) {
-  const el = document.getElementById('vagas-restantes');
-  const inicio = performance.now();
-  function atualizar(agora) {
-    const progresso = Math.min((agora - inicio) / duracao, 1);
-    const valor = Math.round(de + (ate - de) * progresso);
-    el.innerHTML = valor + '<span>vagas restantes</span>';
-    if (progresso < 1) requestAnimationFrame(atualizar);
-  }
-  requestAnimationFrame(atualizar);
-}
-
-async function carregarVagas() {
-  try {
-    const resp = await fetch(SCRIPT_URL);
-    const dados = await resp.json();
-
-    if (dados.status !== 'ok') return;
-
-    const restantes = dados.restantes;
-    const inscritas = dados.inscritas;
-    const percentual = (inscritas / 100) * 100;
-
-    // Anima o contador de vagas
-    animarContador(100, restantes, 1500);
-
-    // Anima a barra
-    setTimeout(() => {
-      document.getElementById('vagas-barra').style.width = percentual + '%';
-    }, 200);
-
-    // Atualiza o label
-    const label = document.getElementById('vagas-barra-label');
-    if (restantes === 0) {
-      label.textContent = 'Todas as vagas foram preenchidas.';
-      label.style.color = 'var(--rosa)';
-      label.style.fontWeight = '500';
-    } else if (restantes <= 10) {
-      label.textContent = `⚠️ Últimas ${restantes} vagas! Inscreva-se agora.`;
-      label.style.color = '#e65100';
-      label.style.fontWeight = '500';
-    } else {
-      label.textContent = `${inscritas} de 100 vagas preenchidas`;
-    }
-
-    // Trava o formulário se encerrado
-    if (dados.encerrado) {
-      document.getElementById('form-container').style.display = 'none';
-      document.getElementById('encerrado-box').style.display = 'block';
-      document.getElementById('inscricao-label').textContent = 'Inscrições encerradas';
-      document.getElementById('inscricao-titulo').textContent = 'Vagas esgotadas';
-      document.getElementById('inscricao-subtitulo').textContent = '';
-      // Atualiza o botão do hero
-      const btnHero = document.querySelector('.btn-hero');
-      if (btnHero) {
-        btnHero.textContent = 'Vagas esgotadas';
-        btnHero.style.opacity = '0.6';
-        btnHero.style.cursor = 'default';
-        btnHero.removeAttribute('href');
+    // Animação do contador
+    function animarContador(de, ate, duracao) {
+      const el = document.getElementById('vagas-restantes');
+      const inicio = performance.now();
+      function atualizar(agora) {
+        const progresso = Math.min((agora - inicio) / duracao, 1);
+        const valor = Math.round(de + (ate - de) * progresso);
+        el.innerHTML = valor + '<span>vagas restantes</span>';
+        if (progresso < 1) requestAnimationFrame(atualizar);
       }
-      // Atualiza o alerta do hero
-      const alerta = document.querySelector('.vagas-alerta');
-      if (alerta) alerta.innerHTML = '🔒 Inscrições encerradas — vagas esgotadas';
+      requestAnimationFrame(atualizar);
     }
 
-  } catch (err) {
-    document.getElementById('vagas-barra-label').textContent = 'Não foi possível carregar as vagas.';
-    document.getElementById('vagas-restantes').innerHTML = '—<span>vagas restantes</span>';
-  }
-}
+    async function carregarVagas() {
+      try {
+        const resp = await fetch(SCRIPT_URL);
+        const dados = await resp.json();
 
-// Carrega as vagas ao abrir o site
-window.addEventListener('load', carregarVagas);
+        if (dados.status !== 'ok') return;
 
-function calcularValor() {
-  const idade = parseInt(document.getElementById('idade').value);
-  const badge = document.getElementById('valor-badge');
-  const texto = document.getElementById('valor-texto');
-  const icone = document.getElementById('valor-icone');
-  const pagamentoWrapper = document.getElementById('pagamento-wrapper');
-  badge.style.display = 'none';
-  badge.className = 'valor-badge';
-  pagamentoWrapper.classList.remove('oculto');
-  if (isNaN(idade) || idade < 0) return;
-  badge.style.display = 'flex';
-  if (idade <= 9) {
-    badge.classList.add('isento');
-    icone.textContent = '🎀';
-    texto.innerHTML = '<strong>Isenta!</strong> Crianças de 0 a 9 anos não pagam inscrição.';
-    pagamentoWrapper.classList.add('oculto');
-    document.querySelectorAll('input[name="pagamento"]').forEach(r => r.checked = false);
-    ['pix','cartao','dinheiro'].forEach(t => document.getElementById('info-'+t).style.display = 'none');
-  } else if (idade <= 14) {
-    badge.classList.add('metade');
-    icone.textContent = '🌷';
-    texto.innerHTML = 'Valor com desconto (10–14 anos): <span class="valor-num">R$ 30,00</span>';
-  } else {
-    badge.classList.add('inteiro');
-    icone.textContent = '✦';
-    texto.innerHTML = 'Valor da inscrição: <span class="valor-num">R$ 60,00</span>';
-  }
-}
+        const restantes = dados.restantes;
+        const inscritas = dados.inscritas;
+        const percentual = (inscritas / 100) * 100;
 
-function mostrarPagamento(tipo) {
-  ['pix','cartao','dinheiro'].forEach(t => {
-    document.getElementById('info-'+t).style.display = t === tipo ? 'block' : 'none';
-  });
-  if (tipo === 'cartao') atualizarLinkCartao();
-}
+        // Anima o contador de vagas
+        animarContador(100, restantes, 1500);
 
-function atualizarLinkCartao() {
-  const idade = parseInt(document.getElementById('idade').value);
-  const div30    = document.getElementById('link-cartao-30');
-  const div60    = document.getElementById('link-cartao-60');
-  const divVazio = document.getElementById('link-cartao-vazio');
-  if (isNaN(idade) || idade < 0) {
-    div30.style.display = 'none';
-    div60.style.display = 'none';
-    divVazio.style.display = 'block';
-  } else if (idade <= 14) {
-    div30.style.display = 'block';
-    div60.style.display = 'none';
-    divVazio.style.display = 'none';
-  } else {
-    div30.style.display = 'none';
-    div60.style.display = 'block';
-    divVazio.style.display = 'none';
-  }
-}
+        // Anima a barra
+        setTimeout(() => {
+          document.getElementById('vagas-barra').style.width = percentual + '%';
+        }, 200);
 
-function copiarPix() {
-  navigator.clipboard.writeText('promessaanapolislucelia@gmail.com').then(() => {
-    const el = document.querySelector('.pix-chave');
-    el.textContent = '✅ Chave copiada!';
-    setTimeout(() => el.innerHTML = '📋 promessaanapolislucelia@gmail.com', 2000);
-  });
-}
+        // Atualiza o label
+        const label = document.getElementById('vagas-barra-label');
+        if (restantes === 0) {
+          label.textContent = 'Todas as vagas foram preenchidas.';
+          label.style.color = 'var(--rosa)';
+          label.style.fontWeight = '500';
+        } else if (restantes <= 10) {
+          label.textContent = `⚠️ Últimas ${restantes} vagas! Inscreva-se agora.`;
+          label.style.color = '#e65100';
+          label.style.fontWeight = '500';
+        } else {
+          label.textContent = `${inscritas} de 100 vagas preenchidas`;
+        }
 
-async function enviarInscricao() {
-  const nome = document.getElementById('nome').value.trim();
-  const whatsapp = document.getElementById('whatsapp').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const idadeVal = document.getElementById('idade').value.trim();
-  const idade = parseInt(idadeVal);
-  const restricao = document.getElementById('restricao').value;
-  const obs = document.getElementById('obs').value.trim();
-  const pagamentoWrapper = document.getElementById('pagamento-wrapper');
-  const pagamento = document.querySelector('input[name="pagamento"]:checked');
+        // Trava o formulário se encerrado
+        if (dados.encerrado) {
+          document.getElementById('form-container').style.display = 'none';
+          document.getElementById('encerrado-box').style.display = 'block';
+          document.getElementById('inscricao-label').textContent = 'Inscrições encerradas';
+          document.getElementById('inscricao-titulo').textContent = 'Vagas esgotadas';
+          document.getElementById('inscricao-subtitulo').textContent = '';
+          // Atualiza o botão do hero
+          const btnHero = document.querySelector('.btn-hero');
+          if (btnHero) {
+            btnHero.textContent = 'Vagas esgotadas';
+            btnHero.style.opacity = '0.6';
+            btnHero.style.cursor = 'default';
+            btnHero.removeAttribute('href');
+          }
+          // Atualiza o alerta do hero
+          const alerta = document.querySelector('.vagas-alerta');
+          if (alerta) alerta.innerHTML = '🔒 Inscrições encerradas — vagas esgotadas';
+        }
 
-  if (!nome || !whatsapp || !email || idadeVal === '') {
-    alert('Por favor, preencha nome, WhatsApp, e-mail e idade.');
-    return;
-  }
-  if (!email.includes('@')) {
-    alert('Por favor, insira um e-mail válido.');
-    return;
-  }
-  if (!restricao) {
-    alert('Por favor, selecione uma opção de restrição alimentar.');
-    return;
-  }
-  if (!pagamentoWrapper.classList.contains('oculto') && !pagamento) {
-    alert('Por favor, selecione a forma de pagamento.');
-    return;
-  }
+      } catch (err) {
+        document.getElementById('vagas-barra-label').textContent = 'Não foi possível carregar as vagas.';
+        document.getElementById('vagas-restantes').innerHTML = '—<span>vagas restantes</span>';
+      }
+    }
 
-  const btn = document.getElementById('btn-enviar');
-  btn.disabled = true;
-  btn.textContent = 'Enviando...';
+    // Carrega as vagas ao abrir o site
+    window.addEventListener('load', carregarVagas);
 
-  const dados = {
-    nome, whatsapp, email,
-    idade: idadeVal,
-    restricao: restricao || 'Nenhuma',
-    observacoes: obs,
-    pagamento: pagamento ? pagamento.value : 'Isenta'
-  };
+    function calcularValor() {
+      const idade = parseInt(document.getElementById('idade').value);
+      const badge = document.getElementById('valor-badge');
+      const texto = document.getElementById('valor-texto');
+      const icone = document.getElementById('valor-icone');
+      const pagamentoWrapper = document.getElementById('pagamento-wrapper');
+      badge.style.display = 'none';
+      badge.className = 'valor-badge';
+      pagamentoWrapper.classList.remove('oculto');
+      if (isNaN(idade) || idade < 0) return;
+      badge.style.display = 'flex';
+      if (idade <= 9) {
+        badge.classList.add('isento');
+        icone.textContent = '🎀';
+        texto.innerHTML = '<strong>Isenta!</strong> Crianças de 0 a 9 anos não pagam inscrição.';
+        pagamentoWrapper.classList.add('oculto');
+        document.querySelectorAll('input[name="pagamento"]').forEach(r => r.checked = false);
+        ['pix', 'cartao', 'dinheiro'].forEach(t => document.getElementById('info-' + t).style.display = 'none');
+      } else if (idade <= 14) {
+        badge.classList.add('metade');
+        icone.textContent = '🌷';
+        texto.innerHTML = 'Valor com desconto (10–14 anos): <span class="valor-num">R$ 30,00</span>';
+      } else {
+        badge.classList.add('inteiro');
+        icone.textContent = '✦';
+        texto.innerHTML = 'Valor da inscrição: <span class="valor-num">R$ 60,00</span>';
+      }
+    }
 
-  try {
-    const resp = await fetch(SCRIPT_URL, {
-      method: 'POST',
-      body: JSON.stringify(dados)
+    function mostrarPagamento(tipo) {
+      ['pix', 'cartao', 'dinheiro'].forEach(t => {
+        document.getElementById('info-' + t).style.display = t === tipo ? 'block' : 'none';
+      });
+      if (tipo === 'cartao') atualizarLinkCartao();
+    }
+
+    function atualizarLinkCartao() {
+      const idade = parseInt(document.getElementById('idade').value);
+      const div30 = document.getElementById('link-cartao-30');
+      const div60 = document.getElementById('link-cartao-60');
+      const divVazio = document.getElementById('link-cartao-vazio');
+      if (isNaN(idade) || idade < 0) {
+        div30.style.display = 'none';
+        div60.style.display = 'none';
+        divVazio.style.display = 'block';
+      } else if (idade <= 14) {
+        div30.style.display = 'block';
+        div60.style.display = 'none';
+        divVazio.style.display = 'none';
+      } else {
+        div30.style.display = 'none';
+        div60.style.display = 'block';
+        divVazio.style.display = 'none';
+      }
+    }
+
+    function copiarPix() {
+      navigator.clipboard.writeText('promessaanapolislucelia@gmail.com').then(() => {
+        const el = document.querySelector('.pix-chave');
+        el.textContent = '✅ Chave copiada!';
+        setTimeout(() => el.innerHTML = '📋 promessaanapolislucelia@gmail.com', 2000);
+      });
+    }
+
+    async function enviarInscricao() {
+      const nome = document.getElementById('nome').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const idadeVal = document.getElementById('idade').value.trim();
+      const idade = parseInt(idadeVal);
+      const restricao = document.getElementById('restricao').value;
+      const obs = document.getElementById('obs').value.trim();
+      const pagamentoWrapper = document.getElementById('pagamento-wrapper');
+      const pagamento = document.querySelector('input[name="pagamento"]:checked');
+
+      if (!nome || !whatsapp || !email || idadeVal === '') {
+        alert('Por favor, preencha nome, WhatsApp, e-mail e idade.');
+        return;
+      }
+      if (!email.includes('@')) {
+        alert('Por favor, insira um e-mail válido.');
+        return;
+      }
+      if (!restricao) {
+        alert('Por favor, selecione uma opção de restrição alimentar.');
+        return;
+      }
+      if (!pagamentoWrapper.classList.contains('oculto') && !pagamento) {
+        alert('Por favor, selecione a forma de pagamento.');
+        return;
+      }
+
+      const btn = document.getElementById('btn-enviar');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      const dados = {
+        nome, whatsapp, email,
+        idade: idadeVal,
+        restricao: restricao || 'Nenhuma',
+        observacoes: obs,
+        pagamento: pagamento ? pagamento.value : 'Isenta'
+      };
+
+      try {
+        const resp = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify(dados)
+        });
+        const resultado = await resp.json();
+        if (resultado.status === 'ok') {
+          document.getElementById('form-container').style.display = 'none';
+          const sucesso = document.getElementById('sucesso-box');
+          sucesso.style.display = 'block';
+          document.getElementById('sucesso-numero').innerHTML = resultado.numero + '<span>seu número de inscrição</span>';
+        } else {
+          throw new Error(resultado.mensagem);
+        }
+      } catch (err) {
+        alert('Ocorreu um erro ao enviar sua inscrição. Tente novamente ou entre em contato: (62) 99308-8043');
+        btn.disabled = false;
+        btn.textContent = 'Confirmar inscrição ✦';
+      }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const el = document.querySelector(a.getAttribute('href'));
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      });
     });
-    const resultado = await resp.json();
-    if (resultado.status === 'ok') {
-      document.getElementById('form-container').style.display = 'none';
-      const sucesso = document.getElementById('sucesso-box');
-      sucesso.style.display = 'block';
-      document.getElementById('sucesso-numero').innerHTML = resultado.numero + '<span>seu número de inscrição</span>';
-    } else {
-      throw new Error(resultado.mensagem);
+
+    // ── COUNTDOWN ──────────────────────────────────────────
+    const ABERTURA = new Date('2026-06-15T12:00:00-03:00'); // Brasília
+
+    function atualizarCountdown() {
+      const agora = new Date();
+      const diff = ABERTURA - agora;
+
+      if (diff <= 0) {
+        // Hora de abrir!
+        document.getElementById('countdown-wrapper').style.display = 'none';
+        document.getElementById('form-container').style.display = 'block';
+        document.getElementById('inscricao-label').textContent = 'Inscrições abertas';
+        document.getElementById('inscricao-titulo').textContent = 'Reserve sua vaga';
+        document.getElementById('inscricao-subtitulo').textContent = 'Preencha os dados abaixo para confirmar sua participação.';
+        carregarVagas();
+        return;
+      }
+
+      const horas = Math.floor(diff / 1000 / 60 / 60);
+      const min = Math.floor((diff / 1000 / 60) % 60);
+      const seg = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('cd-horas').textContent = String(horas).padStart(2, '0');
+      document.getElementById('cd-min').textContent = String(min).padStart(2, '0');
+      document.getElementById('cd-seg').textContent = String(seg).padStart(2, '0');
     }
-  } catch (err) {
-    alert('Ocorreu um erro ao enviar sua inscrição. Tente novamente ou entre em contato: (62) 99308-8043');
-    btn.disabled = false;
-    btn.textContent = 'Confirmar inscrição ✦';
-  }
-}
 
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const el = document.querySelector(a.getAttribute('href'));
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-
-// ── COUNTDOWN ──────────────────────────────────────────
-const ABERTURA = new Date('2026-06-15T12:00:00-03:00'); // Brasília
-
-function atualizarCountdown() {
-  const agora = new Date();
-  const diff = ABERTURA - agora;
-
-  if (diff <= 0) {
-    // Hora de abrir!
-    document.getElementById('countdown-wrapper').style.display = 'none';
-    document.getElementById('form-container').style.display = 'block';
-    document.getElementById('inscricao-label').textContent = 'Inscrições abertas';
-    document.getElementById('inscricao-titulo').textContent = 'Reserve sua vaga';
-    document.getElementById('inscricao-subtitulo').textContent = 'Preencha os dados abaixo para confirmar sua participação.';
-    carregarVagas();
-    return;
-  }
-
-  const horas  = Math.floor(diff / 1000 / 60 / 60);
-  const min    = Math.floor((diff / 1000 / 60) % 60);
-  const seg    = Math.floor((diff / 1000) % 60);
-
-  document.getElementById('cd-horas').textContent = String(horas).padStart(2,'0');
-  document.getElementById('cd-min').textContent   = String(min).padStart(2,'0');
-  document.getElementById('cd-seg').textContent   = String(seg).padStart(2,'0');
-}
-
-// Verifica se já passou do horário ao carregar
-(function iniciarApp() {
-  const agora = new Date();
-  if (agora >= ABERTURA) {
-    document.getElementById('countdown-wrapper').style.display = 'none';
-    document.getElementById('form-container').style.display = 'block';
-    carregarVagas();
-  } else {
-    // Esconde o form enquanto o countdown corre
-    document.getElementById('form-container').style.display = 'none';
-    document.getElementById('inscricao-label').textContent = 'Em breve';
-    document.getElementById('inscricao-titulo').textContent = 'Inscrições abrindo em breve';
-    document.getElementById('inscricao-subtitulo').textContent = 'Fique atento — as vagas são limitadas!';
-    atualizarCountdown();
-    setInterval(atualizarCountdown, 1000);
-  }
-})();
-</script>
+    // Verifica se já passou do horário ao carregar
+    (function iniciarApp() {
+      const agora = new Date();
+      if (agora >= ABERTURA) {
+        document.getElementById('countdown-wrapper').style.display = 'none';
+        document.getElementById('form-container').style.display = 'block';
+        carregarVagas();
+      } else {
+        // Esconde o form enquanto o countdown corre
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('inscricao-label').textContent = 'Em breve';
+        document.getElementById('inscricao-titulo').textContent = 'Inscrições abrindo em breve';
+        document.getElementById('inscricao-subtitulo').textContent = 'Fique atento — as vagas são limitadas!';
+        atualizarCountdown();
+        setInterval(atualizarCountdown, 1000);
+      }
+    })();
+  </script>
 </body>
+
 </html>
