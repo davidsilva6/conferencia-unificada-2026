@@ -1220,6 +1220,7 @@
     // Carrega as vagas ao abrir o site
     window.addEventListener('load', carregarVagas);
 
+    // Código para mascarar o campo de WhatsApp
     function mascaraWhatsApp(input) {
       let v = input.value.replace(/\D/g, '').slice(0, 11);
       if (v.length <= 2) v = v.replace(/^(\d{0,2})/, '($1');
