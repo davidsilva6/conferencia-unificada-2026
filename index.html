@@ -1019,6 +1019,7 @@
     </div>
 
     <div id="form-container">
+      <div id="contagem-fechamento" style="text-align:center; padding:12px; margin-bottom:20px; border-radius:12px; background:#FFF3E0; color:#E65100;"></div>
       <div class="form-grid">
         <div class="form-group">
           <label for="nome">Nome completo</label>
@@ -1143,6 +1144,41 @@
 
   <script>
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKLtXto2meFoaFfhLKQdQPrPo9aoXnOSQM_KkwGaIciouPmM8TzQfFL8KFzMvnIiun/exec';
+    const FECHAMENTO = new Date('2026-10-26T00:00:00-03:00');
+
+    function atualizarContagemFechamento() {
+      const agora = new Date();
+      const diferenca = FECHAMENTO - agora;
+      const elemento = document.getElementById('contagem-fechamento');
+      const botao = document.getElementById('btn-enviar');
+
+      if (diferenca <= 0) {
+        clearInterval(intervaloFechamento);
+        elemento.innerHTML = '<strong>As inscrições foram encerradas.</strong>';
+        elemento.style.background = '#FDECEA';
+        elemento.style.color = '#d32f2f';
+        if (botao) {
+          botao.disabled = true;
+          botao.textContent = 'Inscrições encerradas';
+        }
+        return;
+      }
+
+      const horas = Math.floor(diferenca / 3600000);
+      const minutos = Math.floor((diferenca % 3600000) / 60000);
+      const segundos = Math.floor((diferenca % 60000) / 1000);
+      const pad = n => String(n).padStart(2, '0');
+
+      elemento.innerHTML =
+        'As inscrições encerram à meia-noite<br>' +
+        '<span style="font-size:1.6rem; font-weight:bold;">' +
+        pad(horas) + ':' + pad(minutos) + ':' + pad(segundos) +
+        '</span>';
+    }
+
+    const intervaloFechamento = setInterval(atualizarContagemFechamento, 1000);
+    atualizarContagemFechamento();
+
 
     // Animação do contador
     function animarContador(de, ate, duracao) {
@@ -1219,6 +1255,7 @@
     // Carrega as vagas ao abrir o site
     window.addEventListener('load', carregarVagas);
 
+        
     // Código para mascarar o campo de WhatsApp
     function mascaraWhatsApp(input) {
       let v = input.value.replace(/\D/g, '').slice(0, 11);
